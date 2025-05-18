@@ -3,6 +3,8 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
+user_email_text = input("Enter your email text: ")
+
 emails = [
     "Congratulations! You won a $1000 Walmart gift card. Click here to claim.",
     "Hi John, can we meet tomorrow at 10 AM for the project discussion?",
@@ -43,3 +45,6 @@ accuracy = accuracy_score(y_test, y_pred)
 print(accuracy)
 
 
+user_input_vector = vectorize.transform([user_email_text])  # transform, not fit_transform
+user_prediction = model.predict(user_input_vector)
+print("This email is:", user_prediction[0])
